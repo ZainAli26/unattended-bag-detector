@@ -4,9 +4,7 @@ Real-time security system that detects bags in video, associates them with nearb
 
 ## Architecture
 
-```
-Video Frame → Detection (YOLOv8) → Tracking (BoTSORT) → Association → Unattended Logic → Visualization
-```
+![Architecture](videos/architecture.png)
 
 The system uses YOLOv8 pretrained on COCO to detect persons and bags (backpacks, handbags, suitcases) in each frame. BoTSORT assigns persistent track IDs across frames so objects can be followed over time. A Hungarian algorithm with IoU and proximity scoring links each bag to its nearest owner, with hysteresis to prevent flickering between people. A state machine tracks each bag through UNKNOWN → OWNED → SEPARATED → UNATTENDED states, triggering an alert after a configurable timeout. The output is visualized with color-coded bounding boxes, association lines, countdown timers, and alert banners.
 
