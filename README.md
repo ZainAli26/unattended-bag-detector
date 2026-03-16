@@ -8,11 +8,7 @@ Real-time security system that detects bags in video, associates them with nearb
 Video Frame → Detection (YOLOv8) → Tracking (BoTSORT) → Association → Unattended Logic → Visualization
 ```
 
-- **Detection**: YOLOv8 pretrained on COCO — detects persons, backpacks, handbags, suitcases
-- **Tracking**: BoTSORT via `model.track(persist=True)` for consistent IDs across frames
-- **Association**: Hungarian algorithm with IoU + proximity scoring, hysteresis to prevent flickering
-- **Alert state machine**: UNKNOWN → OWNED → SEPARATED → UNATTENDED (with configurable timeout)
-- **Visualization**: Color-coded bounding boxes, association lines, countdown timers, alert banners
+The system uses YOLOv8 pretrained on COCO to detect persons and bags (backpacks, handbags, suitcases) in each frame. BoTSORT assigns persistent track IDs across frames so objects can be followed over time. A Hungarian algorithm with IoU and proximity scoring links each bag to its nearest owner, with hysteresis to prevent flickering between people. A state machine tracks each bag through UNKNOWN → OWNED → SEPARATED → UNATTENDED states, triggering an alert after a configurable timeout. The output is visualized with color-coded bounding boxes, association lines, countdown timers, and alert banners.
 
 ## Setup
 
@@ -67,7 +63,9 @@ All tuneable parameters are in `config.py`: model settings, class IDs, tracking 
 ## Demo Videos
 
 ### Demo Video 1
-https://github.com/user-attachments/assets/demo1.mp4
+
+<video src="videos/demo1.mp4" controls width="100%"></video>
 
 ### Demo Video 2
-https://github.com/user-attachments/assets/demo2.mp4
+
+<video src="videos/demo2.mp4" controls width="100%"></video>
