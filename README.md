@@ -64,8 +64,8 @@ All tuneable parameters are in `config.py`: model settings, class IDs, tracking 
 
 ### Demo Video 1
 
-<video src="videos/demo1.mp4" controls width="100%"></video>
+![Demo 1](videos/demo1.gif)
 
 ### Demo Video 2
 
-<video src="videos/demo2.mp4" controls width="100%"></video>
+![Demo 2](videos/demo2.gif)
