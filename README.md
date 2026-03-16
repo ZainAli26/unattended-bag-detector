@@ -16,20 +16,25 @@ pip install -r requirements.txt
 
 The YOLOv8 model weights download automatically on first run.
 
+## Quick Start
+
+This shows a person placing a bag and walking away. The bag turns yellow (separated), then red (unattended) after 3 seconds.
+
+```bash
+python main.py --source videos/test_video.avi --output result.mp4 --no-display
+```
+
 ## Usage
 
 ```bash
-# Webcam with 30-second timeout
-python main.py --source 0 --timeout 30
+# Webcam
+python main.py --source 0
 
 # Video file
 python main.py --source path/to/video.mp4
 
 # Save output video (headless)
 python main.py --source video.mp4 --output result.mp4 --no-display
-
-# Custom model and confidence
-python main.py --source 0 --model yolov8s.pt --confidence 0.4
 ```
 
 ### CLI Options
@@ -37,9 +42,6 @@ python main.py --source 0 --model yolov8s.pt --confidence 0.4
 | Flag | Default | Description |
 |------|---------|-------------|
 | `--source` | `0` (webcam) | Video file path or camera index |
-| `--timeout` | `30` | Seconds before a separated bag becomes unattended |
-| `--model` | `yolov8n.pt` | YOLOv8 model variant |
-| `--confidence` | `0.35` | Detection confidence threshold |
 | `--no-display` | off | Run without GUI window |
 | `--output` | none | Save annotated video to file |
 
